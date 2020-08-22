@@ -76,5 +76,4 @@ c2 := make(chan interface{}); close(c2)
     - https://play.golang.org/p/zl_qefvq9LI
 
 ### Next
-- 2020-08-xx 10:00 - 12:00
 - 3章 4.5 エラーハンドリング (P99) から
