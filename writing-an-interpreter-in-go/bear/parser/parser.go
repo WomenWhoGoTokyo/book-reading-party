@@ -73,6 +73,8 @@ func New(l *lexer.Lexer) *Parser {
 
 	p.registerInfix(token.LPAREN, p.parseCallExpression)
 
+	p.registerPrefix(token.STRING, p.parseStringLiteral)
+
 	// 2つトークンを読み込む。curToken と peekToken の両方がセットされる。
 	p.nextToken()
 	p.nextToken()
@@ -435,3 +437,10 @@ type (
 	prefixParseFn func() ast.Expression               // 前置構文解析関数
 	infixParseFn  func(ast.Expression) ast.Expression // 中置構文解析関数
 )
+
+func (p *Parser) parseStringLiteral() ast.Expression {
+	return &ast.StringLiteral{
+		Token: p.curToken,
+		Value: p.curToken.Literal,
+	}
+}
