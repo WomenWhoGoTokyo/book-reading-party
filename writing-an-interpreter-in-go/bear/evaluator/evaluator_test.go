@@ -305,11 +305,32 @@ func TestBuiltinFunctions(t *testing.T) {
 		input    string
 		expected interface{}
 	}{
+		// len
 		{`len("")`, 0},
 		{`len("four")`, 4},
 		{`len("hello world")`, 11},
 		{`len(1)`, "argument to `len` not supported, got INTEGER"},
 		{`len("one", "two")`, "wrong number of arguments. got=2, want=1"},
+
+		// first
+		{`let myArray = [1, 2, 3]; first(myArray)`, 1},
+		{`let i = 1; first(i)`, "argument to `first` must be ARRAY, got INTEGER"},
+		{`let myArray = [1, 2]; first(myArray, 1)`, "wrong number of arguments. got=2, want=1"},
+
+		// last
+		{`let myArray = [1, 2, 3]; last(myArray)`, 3},
+		{`let i = 1; last(i)`, "argument to `last` must be ARRAY, got INTEGER"},
+		{`let myArray = [1, 2]; last(myArray, 1)`, "wrong number of arguments. got=2, want=1"},
+
+		// rest
+		{`let myArray = [1, 2, 3]; rest(myArray)`, []int{2, 3}},
+		{`let i = 1; rest(i)`, "argument to `last` must be ARRAY, got INTEGER"},
+		{`let myArray = [1, 2]; rest(myArray, 1)`, "wrong number of arguments. got=2, want=1"},
+
+		// push
+		{`let myArray = [1, 2, 3]; push(myArray, 4)`, []int{1, 2, 3, 4}},
+		{`let i = 1; push(i, i)`, "argument to `last` must be ARRAY, got INTEGER"},
+		{`let myArray = [1, 2]; push(myArray, 1, 2)`, "wrong number of arguments. got=3, want=2"},
 	}
 
 	for _, tt := range tests {
