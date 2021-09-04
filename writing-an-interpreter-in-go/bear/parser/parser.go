@@ -77,7 +77,9 @@ func New(l *lexer.Lexer) *Parser {
 	p.registerPrefix(token.STRING, p.parseStringLiteral)
 
 	p.registerPrefix(token.LBRACKET, p.parseArrayLiteral)
-	p.registerInfix(token.LBRACKET, p.parseIndexEpression)
+	p.registerInfix(token.LBRACKET, p.parseIndexExpression)
+
+	p.registerPrefix(token.LBRACE, p.parseHashLiteral)
 
 	// 2つトークンを読み込む。curToken と peekToken の両方がセットされる。
 	p.nextToken()
@@ -481,7 +483,7 @@ func (p *Parser) parseArrayLiteral() ast.Expression {
 	return array
 }
 
-func (p *Parser) parseIndexEpression(left ast.Expression) ast.Expression {
+func (p *Parser) parseIndexExpression(left ast.Expression) ast.Expression {
 	exp := &ast.IndexExpression{Token: p.curToken, Left: left}
 
 	p.nextToken()
@@ -492,4 +494,33 @@ func (p *Parser) parseIndexEpression(left ast.Expression) ast.Expression {
 	}
 
 	return exp
+}
+
+func (p *Parser) parseHashLiteral() ast.Expression {
+	hash := &ast.HashLiteral{Token: p.curToken}
+	hash.Pairs = make(map[ast.Expression]ast.Expression)
+
+	for !p.peekTokenIs(token.RBRACE) {
+		p.nextToken()
+		key := p.parseExpression(LOWEST)
+
+		if !p.expectPeek(token.COLON) {
+			return nil
+		}
+
+		p.nextToken()
+		value := p.parseExpression(LOWEST)
+
+		hash.Pairs[key] = value
+
+		if !p.peekTokenIs(token.RBRACE) && !p.expectPeek(token.COMMA) {
+			return nil
+		}
+	}
+
+	if !p.expectPeek(token.RBRACE) {
+		return nil
+	}
+
+	return hash
 }
