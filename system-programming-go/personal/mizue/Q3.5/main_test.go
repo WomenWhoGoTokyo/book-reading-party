@@ -60,6 +60,18 @@ func TestCopyN(t *testing.T) {
 				nil,
 			},
 		},
+		{
+			name: "srcが0の場合",
+			input: input{
+				src: strings.NewReader(""),
+				len: 100,
+			},
+			expected: expected{
+				"",
+				0,
+				io.EOF,
+			},
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
