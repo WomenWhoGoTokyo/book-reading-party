@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	request, err := http.NewRequest("GET", "http://ascii.jp", nil)
+	request, err := http.NewRequest("GET", "server://ascii.jp", nil)
 	if err != nil {
 		panic(err)
 	}
