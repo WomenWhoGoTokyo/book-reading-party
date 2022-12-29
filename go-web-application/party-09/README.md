@@ -5,6 +5,9 @@
 - micchie
 - masumomo
 - mom0tomo
+- Miki
+- misato
+- keimei
 
 ## 読んだところ
 - CHAPTER-17
