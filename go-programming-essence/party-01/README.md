@@ -2,12 +2,34 @@
 
 ## 参加者
 - micchie
+- misato
+- mom0tomo
+- marie729
+- iriko0606
+- rikooo_2206
+- mamitus
 
 ## 読んだところ
-- TODO
+- 1. プログラミング言語Goとは
+  - 1.1 Goの簡単な歴史
+  - 1.2 Goの立ち位置
+  - 1.3 Goが利用される場面
+  - 1.4 教育用途としてのGo
+  - 1.5 なぜGoが使われるのか
+  - 1.6 まとめ
+- 2. 開発環境の準備
+  - 2.1 Goコンパイラのインストール
+  - 2.2 開発環境のセットアップ
+  - 2.3 まとめ
+- 3. 基本的な文法
+  - 3.1 プロジェクトフォルダ
+  - 3.2 Go言語の特徴
+  - 3.3 静的な型
+  - 3.4 基本的な構文
+    - const (定数宣言) まで
 
 ## Note
-[Discord Thread](https://discord.com/channels/)
+[Discord Thread](https://discord.com/channels/689414179752247409/1129936589276074097)
 
 ## 次回
-- YYYY-MM-DD 10:00
+- 2023-07-23 10:00
