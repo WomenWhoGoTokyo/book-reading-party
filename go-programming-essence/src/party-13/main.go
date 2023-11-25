@@ -30,6 +30,8 @@ type Todo struct {
 
 func main() {
 	sqldb, err := sql.Open("postgres", os.Getenv("DATABASE_URL"))
+	// 接続情報の例
+	// sqldb, err := sql.Open("postgres", "postgres://postgres:postgres@localhost:5432/postgres?sslmode=disable")
 	if err != nil {
 		log.Fatal(err)
 	}
