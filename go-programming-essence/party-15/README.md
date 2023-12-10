@@ -5,6 +5,7 @@
 - mom0tomo
 - marie729
 - micchie
+- とらっきー
 
 ## 読んだところ
 
