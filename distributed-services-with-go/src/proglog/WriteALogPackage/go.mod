@@ -1,4 +1,4 @@
-module github.com/WomenWhoGoTokyo/WriteALogPackage
+module github.com/WomenWhoGoTokyo/ploglog
 
 go 1.21.6
 
