@@ -5,8 +5,8 @@ import (
 	"os"
 	"path/filepath"
 
-	api "github.com/WomenWhoGoTokyo/proglog/api/v1"
-	"google.golang.org/protobuf/proto"
+	// api "github.com/WomenWhoGoTokyo/proglog/api/v1"
+	// "google.golang.org/protobuf/proto"
 )
 
 type segment struct {
@@ -56,6 +56,7 @@ func newSegment(dir string, baseOffset uint64, c Config) (*segment, error) {
 	return s, nil
 }
 
+/*
 func (s *segment) Append(record *api.Record) (offset uint64, err error) {
 	cur := s.nextOffset
 	record.Offset = cur
@@ -78,3 +79,4 @@ func (s *segment) Append(record *api.Record) (offset uint64, err error) {
 	s.nextOffset++
 	return cur, nil
 }
+*/
