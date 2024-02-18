@@ -4,7 +4,13 @@ import (
 	"context"
 
 	api "github.com/WomenWhoGoTokyo/ploglog/api/v1"
+	"google.golang.org/grpc"
 )
+
+type CommitLog interface {
+	Append(*api.Record) (uint64, error)
+	Read(uint64) (*api.Record, error)
+}
 
 type Config struct {
 	CommitLog CommitLog
@@ -24,6 +30,16 @@ func newgrpcServer(config *Config) (srv *grpcServer, err error) {
 	return srv, nil
 }
 
+func NewGRPCServer(config *Config) (*grpc.Server, error) {
+	gsrv := grpc.NewServer()
+	srv, err := newgrpcServer(config)
+	if err != nil {
+		return nil, err
+	}
+	api.RegisterLogServer(gsrv, srv)
+	return gsrv, nil
+}
+
 func (s *grpcServer) Produce(ctx context.Context, req *api.ProduceRequest) (*api.ProduceResponse, error) {
 	offset, err := s.CommitLog.Append(req.Record)
 	if err != nil {
@@ -33,7 +49,7 @@ func (s *grpcServer) Produce(ctx context.Context, req *api.ProduceRequest) (*api
 }
 
 func (s *grpcServer) Consume(ctx context.Context, req *api.ConsumeRequest) (*api.ConsumeResponse, error) {
-	record, err := s.CommitLog, Read(req.Offset)
+	record, err := s.CommitLog.Read(req.Offset)
 	if err != nil {
 		return nil, err
 	}
