@@ -5,9 +5,9 @@
 
 ## 参加者
 
-- micchie
 - mom0tomo
 - marie
+- micchie
 
 ## 読んだところ
 

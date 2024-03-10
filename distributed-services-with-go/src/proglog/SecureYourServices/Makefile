@@ -17,6 +17,7 @@ gencert:
 		test/server-csr.json | cfssljson -bare server
 	mv *.pem *.csr ${CONFIG_PATH}
 
+.PHONY: compile
 compile:
 	protoc api/v1/*.proto \
 	--go_out=. \
