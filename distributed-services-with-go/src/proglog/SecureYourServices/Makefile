@@ -7,16 +7,17 @@ init:
 .PHONY: gencert
 gencert:
 	cfssl gencert \
-	-initca ca-csr.json | cfssljson -bare ca
+	-initca test/ca-csr.json | cfssljson -bare ca
 
 	cfssl gencert \
 		-ca=ca.pem \
 		-ca-key=ca-key.pem \
-		-config=ca-config.json \
+		-config=test/ca-config.json \
 		-profile=server \
 		test/server-csr.json | cfssljson -bare server
 	mv *.pem *.csr ${CONFIG_PATH}
 
+.PHONY: compile
 compile:
 	protoc api/v1/*.proto \
 	--go_out=. \
@@ -25,5 +26,6 @@ compile:
 	--go-grpc_opt=paths=source_relative \
 	--proto_path=.
 
+.PHONY: test
 test:
 	go test -race ./...

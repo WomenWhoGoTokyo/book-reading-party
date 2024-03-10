@@ -1,4 +1,4 @@
-# Party-07 2024-02-25
+# Party-08 2024-03-10
 
 正誤表: https://yoshikishibata.github.io/myhomepage/errata/distributed_services_in_go.html  
 コード: https://github.com/YoshikiShibata/proglog
@@ -18,7 +18,7 @@
 
 ## Note
 
-[Discord Thread](https://discord.com/channels/689414179752247409/725156029033218080/1211110446711578665)
+[Discord Thread](https://discord.com/channels/689414179752247409/725156029033218080/1216181628305543218)
 
 ## 次回
 
