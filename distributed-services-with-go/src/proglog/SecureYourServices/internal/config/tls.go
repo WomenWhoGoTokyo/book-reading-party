@@ -18,7 +18,6 @@ type TLSConfig struct {
 func SetupTLSConfig(cfg TLSConfig) (*tls.Config, error) {
 	var err error
 	tlsConfig := &tls.Config{MinVersion: tls.VersionTLS13}
-
 	if cfg.CertFile != "" && cfg.KeyFile != "" {
 		tlsConfig.Certificates = make([]tls.Certificate, 1)
 		tlsConfig.Certificates[0], err = tls.LoadX509KeyPair(
@@ -29,7 +28,6 @@ func SetupTLSConfig(cfg TLSConfig) (*tls.Config, error) {
 			return nil, err
 		}
 	}
-
 	if cfg.CAFile != "" {
 		b, err := os.ReadFile(cfg.CAFile)
 		if err != nil {
@@ -43,7 +41,6 @@ func SetupTLSConfig(cfg TLSConfig) (*tls.Config, error) {
 				cfg.CAFile,
 			)
 		}
-
 		if cfg.Server {
 			tlsConfig.ClientCAs = ca
 			tlsConfig.ClientAuth = tls.RequireAndVerifyClientCert
