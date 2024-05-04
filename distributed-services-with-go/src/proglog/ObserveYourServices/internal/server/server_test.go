@@ -44,7 +44,7 @@ func TestServer(t *testing.T) {
 	){
 		"produce/consume a message to/from the log succeeds": testProduceConsume,
 		"produce/consume stream succeeds":                    testProduceConsumeStream,
-		"consume pas log boundary fails":                     testConsumePastBoundary,
+		"consume past log boundary fails":                    testConsumePastBoundary,
 		"unauthorized fails":                                 testUnauthorized,
 	} {
 		t.Run(scenario, func(t *testing.T) {
@@ -211,7 +211,7 @@ func testConsumePastBoundary(
 		t.Fatal("consume not nil")
 	}
 	got := status.Code(err)
-	want := codes.OutOfRange
+	want := status.Code(api.ErrOffsetOutOfRange{}.GRPCStatus().Err())
 	if got != want {
 		t.Fatalf("got err: %v, want: %v", got, want)
 	}
