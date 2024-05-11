@@ -13,9 +13,9 @@ require (
 	github.com/tysonmote/gommap v0.0.1
 	go.opencensus.io v0.24.0
 	go.uber.org/zap v1.24.0
-	google.golang.org/genproto v0.0.0-20200526211855-cb27e3aa2013
-	google.golang.org/grpc v1.50.0
-	google.golang.org/protobuf v1.28.1
+	google.golang.org/genproto v0.0.0-20230410155749-daa745c078e1
+	google.golang.org/grpc v1.56.3
+	google.golang.org/protobuf v1.30.0
 )
 
 require (
@@ -24,7 +24,7 @@ require (
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/fatih/color v1.13.0 // indirect
 	github.com/golang/groupcache v0.0.0-20200121045136-8c9f03a8e57e // indirect
-	github.com/golang/protobuf v1.5.2 // indirect
+	github.com/golang/protobuf v1.5.3 // indirect
 	github.com/google/btree v0.0.0-20180813153112-4030bb1f1f0c // indirect
 	github.com/hashicorp/errwrap v1.0.0 // indirect
 	github.com/hashicorp/go-hclog v1.5.0 // indirect
