@@ -9,7 +9,7 @@ import (
 	"strings"
 	"sync"
 
-	api "github.com/travisjeffery/proglog/api/v1"
+	api "github.com/WomenWhoGoTokyo/proglog/api/v1"
 )
 
 type Log struct {

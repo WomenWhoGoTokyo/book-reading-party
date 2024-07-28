@@ -1,4 +1,4 @@
-module github.com/travisjeffery/proglog
+module github.com/WomenWhoGoTokyo/proglog
 
 go 1.18
 

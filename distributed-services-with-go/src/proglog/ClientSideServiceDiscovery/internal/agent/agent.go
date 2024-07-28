@@ -15,10 +15,10 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"
 
-	"github.com/travisjeffery/proglog/internal/auth"
-	"github.com/travisjeffery/proglog/internal/discovery"
-	"github.com/travisjeffery/proglog/internal/log"
-	"github.com/travisjeffery/proglog/internal/server"
+	"github.com/WomenWhoGoTokyo/proglog/internal/auth"
+	"github.com/WomenWhoGoTokyo/proglog/internal/discovery"
+	"github.com/WomenWhoGoTokyo/proglog/internal/log"
+	"github.com/WomenWhoGoTokyo/proglog/internal/server"
 )
 
 type Agent struct {

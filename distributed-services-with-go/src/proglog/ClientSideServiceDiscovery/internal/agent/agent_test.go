@@ -15,10 +15,10 @@ import (
 	"google.golang.org/grpc/credentials"
 	"google.golang.org/grpc/status"
 
-	api "github.com/travisjeffery/proglog/api/v1"
-	"github.com/travisjeffery/proglog/internal/agent"
-	"github.com/travisjeffery/proglog/internal/config"
-	"github.com/travisjeffery/proglog/internal/loadbalance"
+	api "github.com/WomenWhoGoTokyo/proglog/api/v1"
+	"github.com/WomenWhoGoTokyo/proglog/internal/agent"
+	"github.com/WomenWhoGoTokyo/proglog/internal/config"
+	"github.com/WomenWhoGoTokyo/proglog/internal/loadbalance"
 )
 
 func TestAgent(t *testing.T) {

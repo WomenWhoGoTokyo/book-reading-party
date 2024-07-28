@@ -5,10 +5,10 @@ import (
 	"testing"
 	"time"
 
+	. "github.com/WomenWhoGoTokyo/proglog/internal/discovery"
 	"github.com/hashicorp/serf/serf"
 	"github.com/stretchr/testify/require"
 	"github.com/travisjeffery/go-dynaport"
-	. "github.com/travisjeffery/proglog/internal/discovery"
 )
 
 func TestMembership(t *testing.T) {

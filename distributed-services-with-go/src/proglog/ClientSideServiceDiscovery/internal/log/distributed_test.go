@@ -9,11 +9,11 @@ import (
 	"testing"
 	"time"
 
+	api "github.com/WomenWhoGoTokyo/proglog/api/v1"
+	"github.com/WomenWhoGoTokyo/proglog/internal/log"
 	"github.com/hashicorp/raft"
 	"github.com/stretchr/testify/require"
 	"github.com/travisjeffery/go-dynaport"
-	api "github.com/travisjeffery/proglog/api/v1"
-	"github.com/travisjeffery/proglog/internal/log"
 )
 
 func TestMultipleNodes(t *testing.T) {
