@@ -75,8 +75,14 @@ func New(config Config) (*Agent, error) {
 }
 
 func (a *Agent) setupMux() error {
+	addr, err := net.ResolveTCPAddr("tcp", a.Config.BindAddr)
+	if err != nil {
+		return err
+	}
+
 	rpcAddr := fmt.Sprintf(
 		":%d",
+		addr.IP.String(),
 		a.Config.RPCPort,
 	)
 	ln, err := net.Listen("tcp", rpcAddr)
@@ -111,6 +117,9 @@ func (a *Agent) setupLog() error {
 		a.Config.ServerTLSConfig,
 		a.Config.PeerTLSConfig,
 	)
+	rpcAddr, _ := a.Config.RPCAddr()
+	logConfig.Raft.BindAddr = rpcAddr
+
 	logConfig.Raft.LocalID = raft.ServerID(a.Config.NodeName)
 	logConfig.Raft.Bootstrap = a.Config.Bootstrap
 	logConfig.Raft.CommitTimeout = 1000 * time.Millisecond

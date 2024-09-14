@@ -1,6 +1,6 @@
 module github.com/WomenWhoGoTokyo/proglog
 
-go 1.18
+go 1.19
 
 require (
 	github.com/casbin/casbin v1.9.1
@@ -13,7 +13,7 @@ require (
 	github.com/spf13/viper v1.19.0
 	github.com/stretchr/testify v1.9.0
 	github.com/travisjeffery/go-dynaport v1.0.0
-	github.com/tysonmote/gommap v0.0.1
+	github.com/tysonmote/gommap v0.0.3
 	go.opencensus.io v0.24.0
 	go.uber.org/zap v1.24.0
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20240314234333-6e1732d8331c
