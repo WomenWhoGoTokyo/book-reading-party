@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+package message;
+
+service MessageService {
+  rpc ListUsers (ListUsersRequest) returns (ListUsersResponse);
+  rpc SendMessage (SendMessageRequest) returns (SendMessageResponse);
+}
+
+/**
+ * ListUsersRequest は、ユーザー一覧を取得します。
+ * - limit は取得するときの最大件数を設定します。
+ * - page_token には、レスポンスで返される next_page_token を設定します。
+ *   - 空文字列を指定した場合は、ユーザー一覧の最初から返されます。
+ * - ユーザー一覧は、name のアルファベットの昇順に返されます。
+ *
+ * [エラー]
+ * - InvalidArgument:
+ *   - limit が 1未満
+ *   - page_token が不正な値
+ */
+message ListUsersRequest {
+  optional int32 page_token = 1;    // ページネーション用
+  optional int32 limit = 2;         // 取得する最大件数
+}
+
+message User {
+  string id = 1;                    // ユーザーID
+  string name = 2;                  // ユーザー名
+  string email = 3;                 // ユーザーの連絡先
+}
+
+message ListUsersResponse {
+  repeated User users = 1;          // ユーザー一覧
+}
+
+/**
+ * SendMessageRequest は、ユーザーにメッセージを送信します。
+ * - schedule_at が指定されていないときは即時送信されます。
+ *
+ * [エラー]
+ * - InvalidArgument:
+ *   - user_id が空文字列
+ *   - content が空文字列
+ *   - schedule_at が空文字列ではないときに不正な値
+ * - NotFound:
+ *   - user_id に対応するユーザーが存在しない
+ */
+message SendMessageRequest {
+  string user_id = 1;               // メッセージを送る対象のユーザーID
+  string content = 2;               // メッセージ内容
+  optional string schedule_at = 3;  // 送信予約時間
+}
+
+message SendMessageResponse {
+  string message_id = 1;            // 送信されたメッセージのID
+  string status = 2;                // "SCHEDULED" | "SENT" | "FAILED"
+}
