@@ -1,4 +1,4 @@
-# Party-13 2025-06-08
+# Party-14 2025-06-29
 
 https://github.com/sago35/tinygobook
 
@@ -10,9 +10,7 @@ https://github.com/sago35/tinygobook
 
 ## 読んだところ
 - chapter 7
-  - 01
-  - 02
-  - 03 / P236
+  - 05 TCP
 
 ## Note
 
@@ -52,5 +50,5 @@ tinygo flash --target wioterminal --size short ./wioterminal/wiobadge/
 
 ## 次回
 
-- 2025-06-29 (日) 10:00
-- Chapter7 05 TCP から 
+- 2025-07-05 (土) 10:00
+- Chapter7 09 HTTP/HTTPS から 
