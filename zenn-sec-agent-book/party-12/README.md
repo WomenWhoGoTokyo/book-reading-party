@@ -1,4 +1,4 @@
-# Party-1２ 2026-08-01
+# Party-12 2026-08-01
 
 ## 参加者
 
@@ -27,4 +27,3 @@ https://github.com/m-mizutani/leveret
 
 - 候補：8/15(土) 16(日) 23(日) 30(日)
 - [第13章](コンテキスト圧縮とサブエージェントパターン) の [サブエージェントによる分散](https://zenn.dev/mizutani/books/sec-agent-book/viewer/13-context-subagent#%E3%82%B5%E3%83%96%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%81%AB%E3%82%88%E3%82%8B%E5%88%86%E6%95%A3)
-
