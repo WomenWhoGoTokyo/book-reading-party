@@ -4,7 +4,7 @@ go 1.18
 
 require (
 	go-micro.dev/v4 v4.7.0
-	google.golang.org/protobuf v1.26.0
+	google.golang.org/protobuf v1.33.0
 	helloworld v0.0.0-00010101000000-000000000000
 )
 
